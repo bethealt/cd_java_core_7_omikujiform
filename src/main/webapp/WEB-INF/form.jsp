@@ -20,7 +20,7 @@
     <body>
         <h1>Send an Omikuji!</h1>
         <div class="container">
-            <form action="/send" method="POST">
+            <form action="/omikuji/send" method="POST">
                 <div class="mb-3">
                     <label for="random" class="form-label">Pick a number from 5 to 25</label>
                     <input type="number" class="form-control" name="random" modelAttribute="random" min="5" max="25">

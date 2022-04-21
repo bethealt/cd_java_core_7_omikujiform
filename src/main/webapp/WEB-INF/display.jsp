@@ -27,7 +27,7 @@
                 with <c:out value="${name}"></c:out> as your roommate, <br>
                 <c:out value="${hobby}"></c:out> for a living. <br>
                  The next time you see a <c:out value="${living}"></c:out>, you will have good luck.  <br>
-                 Also, <c:out value="${nice}"></c:out>.
+                 Also, <c:out value="${nice}"></c:out>
             </p>
             <a href="/omikuji"><input type="submit" class="btn btn-danger" id="send" value="Go Back"></a>
         </div>

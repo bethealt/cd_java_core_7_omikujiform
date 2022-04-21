@@ -1,7 +1,6 @@
 package com.bethealt.omikujiforms.controllers;
 
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -9,16 +8,20 @@ import javax.servlet.http.HttpSession;
 import org.springframework.ui.Model;
 
 @Controller
-@RequestMapping("/omikuji")
 
 public class OmikujiController {
 
-    @GetMapping("")
+    @GetMapping("/")
     public String index() {
+        return "redirect:/omikuji";
+    }
+
+    @GetMapping("/omikuji")
+    public String omikuji() {
         return "form.jsp";
     }
 
-    @PostMapping("/send")
+    @PostMapping("omikuji/send")
     public String omikuji(
         @RequestParam(value="random") int random,
         @RequestParam(value="city") String city,
@@ -38,10 +41,10 @@ public class OmikujiController {
             return "redirect:/omikuji/show";
         }
 
-    @GetMapping("/show")
+    @GetMapping("omikuji/show")
     public String show(HttpSession session, Model model) {
         //retrieves data from session
-        String random = (String) session.getAttribute("random");
+        int random = (int) session.getAttribute("random");
         String city = (String) session.getAttribute("city");
         String name = (String) session.getAttribute("name");
         String hobby = (String) session.getAttribute("hobby");
